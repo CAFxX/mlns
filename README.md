@@ -20,10 +20,21 @@ Verilog code that implements such wide N-sorters becomes impractically large for
 
 The files `nsorter_*.v` contain the generated n-sorters.
 
+Just to provide a rough idea, using [Yosys][Y] `synth` we get the following gate counts (for 64 bit values):
+
+|   N |  Gates |
+| --: | -----: |
+|   2 |    447 |
+|   3 |   1736 |
+|   4 |   3543 |
+|   5 |   6366 |
+|   6 |  12551 |
+|   7 |  41387 |
+|   8 | 250448 |
+
 ## License
 
 [MIT](LICENSE)
 
-
-
 [SN]: https://en.wikipedia.org/wiki/Sorting_network
+[Y]: https://yosyshq.net/yosys/

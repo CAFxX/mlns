@@ -66,22 +66,24 @@ puts "// comparisons=#{(C*C-C)/2}, evals=#{pcs.length}, total cases=#{2**((C*C-C
 puts "module nsorter_#{C} #("
 puts "  parameter B = 64"
 puts ") ("
-puts "  input [B-1:0] in [#{C-1}:0],"
-puts "  output [B-1:0] out [#{C-1}:0]"
+C.times {|x| puts "  input [B-1:0] in#{x}," }
+C.times {|x| puts "  output reg [B-1:0] out#{x}," }
 puts ");"
 k=0
 (0...C).each{|i|
 	(i+1...C).each{|j|
-		puts "  wire c#{k} = in[#{i}] < in[#{j}];"
+		puts "  wire c#{k} = in#{i} < in#{j};"
 		k += 1
 	}
 }
 puts "  always @(*) begin"
 puts "    case ({#{(0...((C*C-C)/2)).to_a.map{|x| "c#{x}" }.join(",")}})"
 m.keys.sort.each{|k| v=m[k]
-	puts "      #{k.length}'b#{k.join("")}: out = {#{v.map{|e| "in[#{e[0]}]" }.join(",") }};"
+	#puts "      #{k.length}'b#{k.join("")}: out = {#{v.map{|e| "in[#{e[0]}]" }.join(",") }};"
+	puts "      #{k.length}'b#{k.join}: begin #{v.map.with_index{|e,i| "out#{i} = in#{e[0]}; "}.join}end"
 }
-puts "      default: out = {#{C}{B{1'bx}}}; // #{2**((C*C-C)/2) - m.length} invalid cases" unless m.length == 2**((C*C-C)/2)
+#puts "      default: out = {#{C}{B{1'bx}}}; // #{2**((C*C-C)/2) - m.length} invalid cases" unless m.length == 2**((C*C-C)/2)
+puts "      default: begin #{C.times.map {|x| "out#{x} = {B{1'bx}}; "}.join}end // #{2**((C*C-C)/2) - m.length} invalid cases" unless m.length == 2**((C*C-C)/2)
 puts "    endcase"
 puts "  end"
 puts "endmodule"

@@ -4,21 +4,25 @@
 module nsorter_3 #(
   parameter B = 64
 ) (
-  input [B-1:0] in [2:0],
-  output [B-1:0] out [2:0]
+  input [B-1:0] in0,
+  input [B-1:0] in1,
+  input [B-1:0] in2,
+  output reg [B-1:0] out0,
+  output reg [B-1:0] out1,
+  output reg [B-1:0] out2,
 );
-  wire c0 = in[0] < in[1];
-  wire c1 = in[0] < in[2];
-  wire c2 = in[1] < in[2];
+  wire c0 = in0 < in1;
+  wire c1 = in0 < in2;
+  wire c2 = in1 < in2;
   always @(*) begin
     case ({c0,c1,c2})
-      3'b000: out = {in[2],in[1],in[0]};
-      3'b001: out = {in[1],in[2],in[0]};
-      3'b011: out = {in[1],in[0],in[2]};
-      3'b100: out = {in[2],in[0],in[1]};
-      3'b110: out = {in[0],in[2],in[1]};
-      3'b111: out = {in[0],in[1],in[2]};
-      default: out = {3{B{1'bx}}}; // 2 invalid cases
+      3'b000: begin out0 = in2; out1 = in1; out2 = in0; end
+      3'b001: begin out0 = in1; out1 = in2; out2 = in0; end
+      3'b011: begin out0 = in1; out1 = in0; out2 = in2; end
+      3'b100: begin out0 = in2; out1 = in0; out2 = in1; end
+      3'b110: begin out0 = in0; out1 = in2; out2 = in1; end
+      3'b111: begin out0 = in0; out1 = in1; out2 = in2; end
+      default: begin out0 = {B{1'bx}}; out1 = {B{1'bx}}; out2 = {B{1'bx}}; end // 2 invalid cases
     endcase
   end
 endmodule

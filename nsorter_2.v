@@ -4,14 +4,16 @@
 module nsorter_2 #(
   parameter B = 64
 ) (
-  input [B-1:0] in [1:0],
-  output [B-1:0] out [1:0]
+  input [B-1:0] in0,
+  input [B-1:0] in1,
+  output reg [B-1:0] out0,
+  output reg [B-1:0] out1,
 );
-  wire c0 = in[0] < in[1];
+  wire c0 = in0 < in1;
   always @(*) begin
     case ({c0})
-      1'b0: out = {in[1],in[0]};
-      1'b1: out = {in[0],in[1]};
+      1'b0: begin out0 = in1; out1 = in0; end
+      1'b1: begin out0 = in0; out1 = in1; end
     endcase
   end
 endmodule

@@ -4,42 +4,48 @@
 module nsorter_4 #(
   parameter B = 64
 ) (
-  input [B-1:0] in [3:0],
-  output [B-1:0] out [3:0]
+  input [B-1:0] in0,
+  input [B-1:0] in1,
+  input [B-1:0] in2,
+  input [B-1:0] in3,
+  output reg [B-1:0] out0,
+  output reg [B-1:0] out1,
+  output reg [B-1:0] out2,
+  output reg [B-1:0] out3,
 );
-  wire c0 = in[0] < in[1];
-  wire c1 = in[0] < in[2];
-  wire c2 = in[0] < in[3];
-  wire c3 = in[1] < in[2];
-  wire c4 = in[1] < in[3];
-  wire c5 = in[2] < in[3];
+  wire c0 = in0 < in1;
+  wire c1 = in0 < in2;
+  wire c2 = in0 < in3;
+  wire c3 = in1 < in2;
+  wire c4 = in1 < in3;
+  wire c5 = in2 < in3;
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5})
-      6'b000000: out = {in[3],in[2],in[1],in[0]};
-      6'b000001: out = {in[2],in[3],in[1],in[0]};
-      6'b000011: out = {in[2],in[1],in[3],in[0]};
-      6'b000100: out = {in[3],in[1],in[2],in[0]};
-      6'b000110: out = {in[1],in[3],in[2],in[0]};
-      6'b000111: out = {in[1],in[2],in[3],in[0]};
-      6'b001011: out = {in[2],in[1],in[0],in[3]};
-      6'b001111: out = {in[1],in[2],in[0],in[3]};
-      6'b010100: out = {in[3],in[1],in[0],in[2]};
-      6'b010110: out = {in[1],in[3],in[0],in[2]};
-      6'b011110: out = {in[1],in[0],in[3],in[2]};
-      6'b011111: out = {in[1],in[0],in[2],in[3]};
-      6'b100000: out = {in[3],in[2],in[0],in[1]};
-      6'b100001: out = {in[2],in[3],in[0],in[1]};
-      6'b101001: out = {in[2],in[0],in[3],in[1]};
-      6'b101011: out = {in[2],in[0],in[1],in[3]};
-      6'b110000: out = {in[3],in[0],in[2],in[1]};
-      6'b110100: out = {in[3],in[0],in[1],in[2]};
-      6'b111000: out = {in[0],in[3],in[2],in[1]};
-      6'b111001: out = {in[0],in[2],in[3],in[1]};
-      6'b111011: out = {in[0],in[2],in[1],in[3]};
-      6'b111100: out = {in[0],in[3],in[1],in[2]};
-      6'b111110: out = {in[0],in[1],in[3],in[2]};
-      6'b111111: out = {in[0],in[1],in[2],in[3]};
-      default: out = {4{B{1'bx}}}; // 40 invalid cases
+      6'b000000: begin out0 = in3; out1 = in2; out2 = in1; out3 = in0; end
+      6'b000001: begin out0 = in2; out1 = in3; out2 = in1; out3 = in0; end
+      6'b000011: begin out0 = in2; out1 = in1; out2 = in3; out3 = in0; end
+      6'b000100: begin out0 = in3; out1 = in1; out2 = in2; out3 = in0; end
+      6'b000110: begin out0 = in1; out1 = in3; out2 = in2; out3 = in0; end
+      6'b000111: begin out0 = in1; out1 = in2; out2 = in3; out3 = in0; end
+      6'b001011: begin out0 = in2; out1 = in1; out2 = in0; out3 = in3; end
+      6'b001111: begin out0 = in1; out1 = in2; out2 = in0; out3 = in3; end
+      6'b010100: begin out0 = in3; out1 = in1; out2 = in0; out3 = in2; end
+      6'b010110: begin out0 = in1; out1 = in3; out2 = in0; out3 = in2; end
+      6'b011110: begin out0 = in1; out1 = in0; out2 = in3; out3 = in2; end
+      6'b011111: begin out0 = in1; out1 = in0; out2 = in2; out3 = in3; end
+      6'b100000: begin out0 = in3; out1 = in2; out2 = in0; out3 = in1; end
+      6'b100001: begin out0 = in2; out1 = in3; out2 = in0; out3 = in1; end
+      6'b101001: begin out0 = in2; out1 = in0; out2 = in3; out3 = in1; end
+      6'b101011: begin out0 = in2; out1 = in0; out2 = in1; out3 = in3; end
+      6'b110000: begin out0 = in3; out1 = in0; out2 = in2; out3 = in1; end
+      6'b110100: begin out0 = in3; out1 = in0; out2 = in1; out3 = in2; end
+      6'b111000: begin out0 = in0; out1 = in3; out2 = in2; out3 = in1; end
+      6'b111001: begin out0 = in0; out1 = in2; out2 = in3; out3 = in1; end
+      6'b111011: begin out0 = in0; out1 = in2; out2 = in1; out3 = in3; end
+      6'b111100: begin out0 = in0; out1 = in3; out2 = in1; out3 = in2; end
+      6'b111110: begin out0 = in0; out1 = in1; out2 = in3; out3 = in2; end
+      6'b111111: begin out0 = in0; out1 = in1; out2 = in2; out3 = in3; end
+      default: begin out0 = {B{1'bx}}; out1 = {B{1'bx}}; out2 = {B{1'bx}}; out3 = {B{1'bx}}; end // 40 invalid cases
     endcase
   end
 endmodule

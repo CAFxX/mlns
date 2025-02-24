@@ -4,142 +4,150 @@
 module nsorter_5 #(
   parameter B = 64
 ) (
-  input [B-1:0] in [4:0],
-  output [B-1:0] out [4:0]
+  input [B-1:0] in0,
+  input [B-1:0] in1,
+  input [B-1:0] in2,
+  input [B-1:0] in3,
+  input [B-1:0] in4,
+  output reg [B-1:0] out0,
+  output reg [B-1:0] out1,
+  output reg [B-1:0] out2,
+  output reg [B-1:0] out3,
+  output reg [B-1:0] out4,
 );
-  wire c0 = in[0] < in[1];
-  wire c1 = in[0] < in[2];
-  wire c2 = in[0] < in[3];
-  wire c3 = in[0] < in[4];
-  wire c4 = in[1] < in[2];
-  wire c5 = in[1] < in[3];
-  wire c6 = in[1] < in[4];
-  wire c7 = in[2] < in[3];
-  wire c8 = in[2] < in[4];
-  wire c9 = in[3] < in[4];
+  wire c0 = in0 < in1;
+  wire c1 = in0 < in2;
+  wire c2 = in0 < in3;
+  wire c3 = in0 < in4;
+  wire c4 = in1 < in2;
+  wire c5 = in1 < in3;
+  wire c6 = in1 < in4;
+  wire c7 = in2 < in3;
+  wire c8 = in2 < in4;
+  wire c9 = in3 < in4;
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5,c6,c7,c8,c9})
-      10'b0000000000: out = {in[4],in[3],in[2],in[1],in[0]};
-      10'b0000000001: out = {in[3],in[4],in[2],in[1],in[0]};
-      10'b0000000011: out = {in[3],in[2],in[4],in[1],in[0]};
-      10'b0000000100: out = {in[4],in[2],in[3],in[1],in[0]};
-      10'b0000000110: out = {in[2],in[4],in[3],in[1],in[0]};
-      10'b0000000111: out = {in[2],in[3],in[4],in[1],in[0]};
-      10'b0000001011: out = {in[3],in[2],in[1],in[4],in[0]};
-      10'b0000001111: out = {in[2],in[3],in[1],in[4],in[0]};
-      10'b0000010100: out = {in[4],in[2],in[1],in[3],in[0]};
-      10'b0000010110: out = {in[2],in[4],in[1],in[3],in[0]};
-      10'b0000011110: out = {in[2],in[1],in[4],in[3],in[0]};
-      10'b0000011111: out = {in[2],in[1],in[3],in[4],in[0]};
-      10'b0000100000: out = {in[4],in[3],in[1],in[2],in[0]};
-      10'b0000100001: out = {in[3],in[4],in[1],in[2],in[0]};
-      10'b0000101001: out = {in[3],in[1],in[4],in[2],in[0]};
-      10'b0000101011: out = {in[3],in[1],in[2],in[4],in[0]};
-      10'b0000110000: out = {in[4],in[1],in[3],in[2],in[0]};
-      10'b0000110100: out = {in[4],in[1],in[2],in[3],in[0]};
-      10'b0000111000: out = {in[1],in[4],in[3],in[2],in[0]};
-      10'b0000111001: out = {in[1],in[3],in[4],in[2],in[0]};
-      10'b0000111011: out = {in[1],in[3],in[2],in[4],in[0]};
-      10'b0000111100: out = {in[1],in[4],in[2],in[3],in[0]};
-      10'b0000111110: out = {in[1],in[2],in[4],in[3],in[0]};
-      10'b0000111111: out = {in[1],in[2],in[3],in[4],in[0]};
-      10'b0001001011: out = {in[3],in[2],in[1],in[0],in[4]};
-      10'b0001001111: out = {in[2],in[3],in[1],in[0],in[4]};
-      10'b0001011111: out = {in[2],in[1],in[3],in[0],in[4]};
-      10'b0001101011: out = {in[3],in[1],in[2],in[0],in[4]};
-      10'b0001111011: out = {in[1],in[3],in[2],in[0],in[4]};
-      10'b0001111111: out = {in[1],in[2],in[3],in[0],in[4]};
-      10'b0010010100: out = {in[4],in[2],in[1],in[0],in[3]};
-      10'b0010010110: out = {in[2],in[4],in[1],in[0],in[3]};
-      10'b0010011110: out = {in[2],in[1],in[4],in[0],in[3]};
-      10'b0010110100: out = {in[4],in[1],in[2],in[0],in[3]};
-      10'b0010111100: out = {in[1],in[4],in[2],in[0],in[3]};
-      10'b0010111110: out = {in[1],in[2],in[4],in[0],in[3]};
-      10'b0011011110: out = {in[2],in[1],in[0],in[4],in[3]};
-      10'b0011011111: out = {in[2],in[1],in[0],in[3],in[4]};
-      10'b0011111110: out = {in[1],in[2],in[0],in[4],in[3]};
-      10'b0011111111: out = {in[1],in[2],in[0],in[3],in[4]};
-      10'b0100100000: out = {in[4],in[3],in[1],in[0],in[2]};
-      10'b0100100001: out = {in[3],in[4],in[1],in[0],in[2]};
-      10'b0100101001: out = {in[3],in[1],in[4],in[0],in[2]};
-      10'b0100110000: out = {in[4],in[1],in[3],in[0],in[2]};
-      10'b0100111000: out = {in[1],in[4],in[3],in[0],in[2]};
-      10'b0100111001: out = {in[1],in[3],in[4],in[0],in[2]};
-      10'b0101101001: out = {in[3],in[1],in[0],in[4],in[2]};
-      10'b0101101011: out = {in[3],in[1],in[0],in[2],in[4]};
-      10'b0101111001: out = {in[1],in[3],in[0],in[4],in[2]};
-      10'b0101111011: out = {in[1],in[3],in[0],in[2],in[4]};
-      10'b0110110000: out = {in[4],in[1],in[0],in[3],in[2]};
-      10'b0110110100: out = {in[4],in[1],in[0],in[2],in[3]};
-      10'b0110111000: out = {in[1],in[4],in[0],in[3],in[2]};
-      10'b0110111100: out = {in[1],in[4],in[0],in[2],in[3]};
-      10'b0111111000: out = {in[1],in[0],in[4],in[3],in[2]};
-      10'b0111111001: out = {in[1],in[0],in[3],in[4],in[2]};
-      10'b0111111011: out = {in[1],in[0],in[3],in[2],in[4]};
-      10'b0111111100: out = {in[1],in[0],in[4],in[2],in[3]};
-      10'b0111111110: out = {in[1],in[0],in[2],in[4],in[3]};
-      10'b0111111111: out = {in[1],in[0],in[2],in[3],in[4]};
-      10'b1000000000: out = {in[4],in[3],in[2],in[0],in[1]};
-      10'b1000000001: out = {in[3],in[4],in[2],in[0],in[1]};
-      10'b1000000011: out = {in[3],in[2],in[4],in[0],in[1]};
-      10'b1000000100: out = {in[4],in[2],in[3],in[0],in[1]};
-      10'b1000000110: out = {in[2],in[4],in[3],in[0],in[1]};
-      10'b1000000111: out = {in[2],in[3],in[4],in[0],in[1]};
-      10'b1001000011: out = {in[3],in[2],in[0],in[4],in[1]};
-      10'b1001000111: out = {in[2],in[3],in[0],in[4],in[1]};
-      10'b1001001011: out = {in[3],in[2],in[0],in[1],in[4]};
-      10'b1001001111: out = {in[2],in[3],in[0],in[1],in[4]};
-      10'b1010000100: out = {in[4],in[2],in[0],in[3],in[1]};
-      10'b1010000110: out = {in[2],in[4],in[0],in[3],in[1]};
-      10'b1010010100: out = {in[4],in[2],in[0],in[1],in[3]};
-      10'b1010010110: out = {in[2],in[4],in[0],in[1],in[3]};
-      10'b1011000110: out = {in[2],in[0],in[4],in[3],in[1]};
-      10'b1011000111: out = {in[2],in[0],in[3],in[4],in[1]};
-      10'b1011001111: out = {in[2],in[0],in[3],in[1],in[4]};
-      10'b1011010110: out = {in[2],in[0],in[4],in[1],in[3]};
-      10'b1011011110: out = {in[2],in[0],in[1],in[4],in[3]};
-      10'b1011011111: out = {in[2],in[0],in[1],in[3],in[4]};
-      10'b1100000000: out = {in[4],in[3],in[0],in[2],in[1]};
-      10'b1100000001: out = {in[3],in[4],in[0],in[2],in[1]};
-      10'b1100100000: out = {in[4],in[3],in[0],in[1],in[2]};
-      10'b1100100001: out = {in[3],in[4],in[0],in[1],in[2]};
-      10'b1101000001: out = {in[3],in[0],in[4],in[2],in[1]};
-      10'b1101000011: out = {in[3],in[0],in[2],in[4],in[1]};
-      10'b1101001011: out = {in[3],in[0],in[2],in[1],in[4]};
-      10'b1101100001: out = {in[3],in[0],in[4],in[1],in[2]};
-      10'b1101101001: out = {in[3],in[0],in[1],in[4],in[2]};
-      10'b1101101011: out = {in[3],in[0],in[1],in[2],in[4]};
-      10'b1110000000: out = {in[4],in[0],in[3],in[2],in[1]};
-      10'b1110000100: out = {in[4],in[0],in[2],in[3],in[1]};
-      10'b1110010100: out = {in[4],in[0],in[2],in[1],in[3]};
-      10'b1110100000: out = {in[4],in[0],in[3],in[1],in[2]};
-      10'b1110110000: out = {in[4],in[0],in[1],in[3],in[2]};
-      10'b1110110100: out = {in[4],in[0],in[1],in[2],in[3]};
-      10'b1111000000: out = {in[0],in[4],in[3],in[2],in[1]};
-      10'b1111000001: out = {in[0],in[3],in[4],in[2],in[1]};
-      10'b1111000011: out = {in[0],in[3],in[2],in[4],in[1]};
-      10'b1111000100: out = {in[0],in[4],in[2],in[3],in[1]};
-      10'b1111000110: out = {in[0],in[2],in[4],in[3],in[1]};
-      10'b1111000111: out = {in[0],in[2],in[3],in[4],in[1]};
-      10'b1111001011: out = {in[0],in[3],in[2],in[1],in[4]};
-      10'b1111001111: out = {in[0],in[2],in[3],in[1],in[4]};
-      10'b1111010100: out = {in[0],in[4],in[2],in[1],in[3]};
-      10'b1111010110: out = {in[0],in[2],in[4],in[1],in[3]};
-      10'b1111011110: out = {in[0],in[2],in[1],in[4],in[3]};
-      10'b1111011111: out = {in[0],in[2],in[1],in[3],in[4]};
-      10'b1111100000: out = {in[0],in[4],in[3],in[1],in[2]};
-      10'b1111100001: out = {in[0],in[3],in[4],in[1],in[2]};
-      10'b1111101001: out = {in[0],in[3],in[1],in[4],in[2]};
-      10'b1111101011: out = {in[0],in[3],in[1],in[2],in[4]};
-      10'b1111110000: out = {in[0],in[4],in[1],in[3],in[2]};
-      10'b1111110100: out = {in[0],in[4],in[1],in[2],in[3]};
-      10'b1111111000: out = {in[0],in[1],in[4],in[3],in[2]};
-      10'b1111111001: out = {in[0],in[1],in[3],in[4],in[2]};
-      10'b1111111011: out = {in[0],in[1],in[3],in[2],in[4]};
-      10'b1111111100: out = {in[0],in[1],in[4],in[2],in[3]};
-      10'b1111111110: out = {in[0],in[1],in[2],in[4],in[3]};
-      10'b1111111111: out = {in[0],in[1],in[2],in[3],in[4]};
-      default: out = {5{B{1'bx}}}; // 904 invalid cases
+      10'b0000000000: begin out0 = in4; out1 = in3; out2 = in2; out3 = in1; out4 = in0; end
+      10'b0000000001: begin out0 = in3; out1 = in4; out2 = in2; out3 = in1; out4 = in0; end
+      10'b0000000011: begin out0 = in3; out1 = in2; out2 = in4; out3 = in1; out4 = in0; end
+      10'b0000000100: begin out0 = in4; out1 = in2; out2 = in3; out3 = in1; out4 = in0; end
+      10'b0000000110: begin out0 = in2; out1 = in4; out2 = in3; out3 = in1; out4 = in0; end
+      10'b0000000111: begin out0 = in2; out1 = in3; out2 = in4; out3 = in1; out4 = in0; end
+      10'b0000001011: begin out0 = in3; out1 = in2; out2 = in1; out3 = in4; out4 = in0; end
+      10'b0000001111: begin out0 = in2; out1 = in3; out2 = in1; out3 = in4; out4 = in0; end
+      10'b0000010100: begin out0 = in4; out1 = in2; out2 = in1; out3 = in3; out4 = in0; end
+      10'b0000010110: begin out0 = in2; out1 = in4; out2 = in1; out3 = in3; out4 = in0; end
+      10'b0000011110: begin out0 = in2; out1 = in1; out2 = in4; out3 = in3; out4 = in0; end
+      10'b0000011111: begin out0 = in2; out1 = in1; out2 = in3; out3 = in4; out4 = in0; end
+      10'b0000100000: begin out0 = in4; out1 = in3; out2 = in1; out3 = in2; out4 = in0; end
+      10'b0000100001: begin out0 = in3; out1 = in4; out2 = in1; out3 = in2; out4 = in0; end
+      10'b0000101001: begin out0 = in3; out1 = in1; out2 = in4; out3 = in2; out4 = in0; end
+      10'b0000101011: begin out0 = in3; out1 = in1; out2 = in2; out3 = in4; out4 = in0; end
+      10'b0000110000: begin out0 = in4; out1 = in1; out2 = in3; out3 = in2; out4 = in0; end
+      10'b0000110100: begin out0 = in4; out1 = in1; out2 = in2; out3 = in3; out4 = in0; end
+      10'b0000111000: begin out0 = in1; out1 = in4; out2 = in3; out3 = in2; out4 = in0; end
+      10'b0000111001: begin out0 = in1; out1 = in3; out2 = in4; out3 = in2; out4 = in0; end
+      10'b0000111011: begin out0 = in1; out1 = in3; out2 = in2; out3 = in4; out4 = in0; end
+      10'b0000111100: begin out0 = in1; out1 = in4; out2 = in2; out3 = in3; out4 = in0; end
+      10'b0000111110: begin out0 = in1; out1 = in2; out2 = in4; out3 = in3; out4 = in0; end
+      10'b0000111111: begin out0 = in1; out1 = in2; out2 = in3; out3 = in4; out4 = in0; end
+      10'b0001001011: begin out0 = in3; out1 = in2; out2 = in1; out3 = in0; out4 = in4; end
+      10'b0001001111: begin out0 = in2; out1 = in3; out2 = in1; out3 = in0; out4 = in4; end
+      10'b0001011111: begin out0 = in2; out1 = in1; out2 = in3; out3 = in0; out4 = in4; end
+      10'b0001101011: begin out0 = in3; out1 = in1; out2 = in2; out3 = in0; out4 = in4; end
+      10'b0001111011: begin out0 = in1; out1 = in3; out2 = in2; out3 = in0; out4 = in4; end
+      10'b0001111111: begin out0 = in1; out1 = in2; out2 = in3; out3 = in0; out4 = in4; end
+      10'b0010010100: begin out0 = in4; out1 = in2; out2 = in1; out3 = in0; out4 = in3; end
+      10'b0010010110: begin out0 = in2; out1 = in4; out2 = in1; out3 = in0; out4 = in3; end
+      10'b0010011110: begin out0 = in2; out1 = in1; out2 = in4; out3 = in0; out4 = in3; end
+      10'b0010110100: begin out0 = in4; out1 = in1; out2 = in2; out3 = in0; out4 = in3; end
+      10'b0010111100: begin out0 = in1; out1 = in4; out2 = in2; out3 = in0; out4 = in3; end
+      10'b0010111110: begin out0 = in1; out1 = in2; out2 = in4; out3 = in0; out4 = in3; end
+      10'b0011011110: begin out0 = in2; out1 = in1; out2 = in0; out3 = in4; out4 = in3; end
+      10'b0011011111: begin out0 = in2; out1 = in1; out2 = in0; out3 = in3; out4 = in4; end
+      10'b0011111110: begin out0 = in1; out1 = in2; out2 = in0; out3 = in4; out4 = in3; end
+      10'b0011111111: begin out0 = in1; out1 = in2; out2 = in0; out3 = in3; out4 = in4; end
+      10'b0100100000: begin out0 = in4; out1 = in3; out2 = in1; out3 = in0; out4 = in2; end
+      10'b0100100001: begin out0 = in3; out1 = in4; out2 = in1; out3 = in0; out4 = in2; end
+      10'b0100101001: begin out0 = in3; out1 = in1; out2 = in4; out3 = in0; out4 = in2; end
+      10'b0100110000: begin out0 = in4; out1 = in1; out2 = in3; out3 = in0; out4 = in2; end
+      10'b0100111000: begin out0 = in1; out1 = in4; out2 = in3; out3 = in0; out4 = in2; end
+      10'b0100111001: begin out0 = in1; out1 = in3; out2 = in4; out3 = in0; out4 = in2; end
+      10'b0101101001: begin out0 = in3; out1 = in1; out2 = in0; out3 = in4; out4 = in2; end
+      10'b0101101011: begin out0 = in3; out1 = in1; out2 = in0; out3 = in2; out4 = in4; end
+      10'b0101111001: begin out0 = in1; out1 = in3; out2 = in0; out3 = in4; out4 = in2; end
+      10'b0101111011: begin out0 = in1; out1 = in3; out2 = in0; out3 = in2; out4 = in4; end
+      10'b0110110000: begin out0 = in4; out1 = in1; out2 = in0; out3 = in3; out4 = in2; end
+      10'b0110110100: begin out0 = in4; out1 = in1; out2 = in0; out3 = in2; out4 = in3; end
+      10'b0110111000: begin out0 = in1; out1 = in4; out2 = in0; out3 = in3; out4 = in2; end
+      10'b0110111100: begin out0 = in1; out1 = in4; out2 = in0; out3 = in2; out4 = in3; end
+      10'b0111111000: begin out0 = in1; out1 = in0; out2 = in4; out3 = in3; out4 = in2; end
+      10'b0111111001: begin out0 = in1; out1 = in0; out2 = in3; out3 = in4; out4 = in2; end
+      10'b0111111011: begin out0 = in1; out1 = in0; out2 = in3; out3 = in2; out4 = in4; end
+      10'b0111111100: begin out0 = in1; out1 = in0; out2 = in4; out3 = in2; out4 = in3; end
+      10'b0111111110: begin out0 = in1; out1 = in0; out2 = in2; out3 = in4; out4 = in3; end
+      10'b0111111111: begin out0 = in1; out1 = in0; out2 = in2; out3 = in3; out4 = in4; end
+      10'b1000000000: begin out0 = in4; out1 = in3; out2 = in2; out3 = in0; out4 = in1; end
+      10'b1000000001: begin out0 = in3; out1 = in4; out2 = in2; out3 = in0; out4 = in1; end
+      10'b1000000011: begin out0 = in3; out1 = in2; out2 = in4; out3 = in0; out4 = in1; end
+      10'b1000000100: begin out0 = in4; out1 = in2; out2 = in3; out3 = in0; out4 = in1; end
+      10'b1000000110: begin out0 = in2; out1 = in4; out2 = in3; out3 = in0; out4 = in1; end
+      10'b1000000111: begin out0 = in2; out1 = in3; out2 = in4; out3 = in0; out4 = in1; end
+      10'b1001000011: begin out0 = in3; out1 = in2; out2 = in0; out3 = in4; out4 = in1; end
+      10'b1001000111: begin out0 = in2; out1 = in3; out2 = in0; out3 = in4; out4 = in1; end
+      10'b1001001011: begin out0 = in3; out1 = in2; out2 = in0; out3 = in1; out4 = in4; end
+      10'b1001001111: begin out0 = in2; out1 = in3; out2 = in0; out3 = in1; out4 = in4; end
+      10'b1010000100: begin out0 = in4; out1 = in2; out2 = in0; out3 = in3; out4 = in1; end
+      10'b1010000110: begin out0 = in2; out1 = in4; out2 = in0; out3 = in3; out4 = in1; end
+      10'b1010010100: begin out0 = in4; out1 = in2; out2 = in0; out3 = in1; out4 = in3; end
+      10'b1010010110: begin out0 = in2; out1 = in4; out2 = in0; out3 = in1; out4 = in3; end
+      10'b1011000110: begin out0 = in2; out1 = in0; out2 = in4; out3 = in3; out4 = in1; end
+      10'b1011000111: begin out0 = in2; out1 = in0; out2 = in3; out3 = in4; out4 = in1; end
+      10'b1011001111: begin out0 = in2; out1 = in0; out2 = in3; out3 = in1; out4 = in4; end
+      10'b1011010110: begin out0 = in2; out1 = in0; out2 = in4; out3 = in1; out4 = in3; end
+      10'b1011011110: begin out0 = in2; out1 = in0; out2 = in1; out3 = in4; out4 = in3; end
+      10'b1011011111: begin out0 = in2; out1 = in0; out2 = in1; out3 = in3; out4 = in4; end
+      10'b1100000000: begin out0 = in4; out1 = in3; out2 = in0; out3 = in2; out4 = in1; end
+      10'b1100000001: begin out0 = in3; out1 = in4; out2 = in0; out3 = in2; out4 = in1; end
+      10'b1100100000: begin out0 = in4; out1 = in3; out2 = in0; out3 = in1; out4 = in2; end
+      10'b1100100001: begin out0 = in3; out1 = in4; out2 = in0; out3 = in1; out4 = in2; end
+      10'b1101000001: begin out0 = in3; out1 = in0; out2 = in4; out3 = in2; out4 = in1; end
+      10'b1101000011: begin out0 = in3; out1 = in0; out2 = in2; out3 = in4; out4 = in1; end
+      10'b1101001011: begin out0 = in3; out1 = in0; out2 = in2; out3 = in1; out4 = in4; end
+      10'b1101100001: begin out0 = in3; out1 = in0; out2 = in4; out3 = in1; out4 = in2; end
+      10'b1101101001: begin out0 = in3; out1 = in0; out2 = in1; out3 = in4; out4 = in2; end
+      10'b1101101011: begin out0 = in3; out1 = in0; out2 = in1; out3 = in2; out4 = in4; end
+      10'b1110000000: begin out0 = in4; out1 = in0; out2 = in3; out3 = in2; out4 = in1; end
+      10'b1110000100: begin out0 = in4; out1 = in0; out2 = in2; out3 = in3; out4 = in1; end
+      10'b1110010100: begin out0 = in4; out1 = in0; out2 = in2; out3 = in1; out4 = in3; end
+      10'b1110100000: begin out0 = in4; out1 = in0; out2 = in3; out3 = in1; out4 = in2; end
+      10'b1110110000: begin out0 = in4; out1 = in0; out2 = in1; out3 = in3; out4 = in2; end
+      10'b1110110100: begin out0 = in4; out1 = in0; out2 = in1; out3 = in2; out4 = in3; end
+      10'b1111000000: begin out0 = in0; out1 = in4; out2 = in3; out3 = in2; out4 = in1; end
+      10'b1111000001: begin out0 = in0; out1 = in3; out2 = in4; out3 = in2; out4 = in1; end
+      10'b1111000011: begin out0 = in0; out1 = in3; out2 = in2; out3 = in4; out4 = in1; end
+      10'b1111000100: begin out0 = in0; out1 = in4; out2 = in2; out3 = in3; out4 = in1; end
+      10'b1111000110: begin out0 = in0; out1 = in2; out2 = in4; out3 = in3; out4 = in1; end
+      10'b1111000111: begin out0 = in0; out1 = in2; out2 = in3; out3 = in4; out4 = in1; end
+      10'b1111001011: begin out0 = in0; out1 = in3; out2 = in2; out3 = in1; out4 = in4; end
+      10'b1111001111: begin out0 = in0; out1 = in2; out2 = in3; out3 = in1; out4 = in4; end
+      10'b1111010100: begin out0 = in0; out1 = in4; out2 = in2; out3 = in1; out4 = in3; end
+      10'b1111010110: begin out0 = in0; out1 = in2; out2 = in4; out3 = in1; out4 = in3; end
+      10'b1111011110: begin out0 = in0; out1 = in2; out2 = in1; out3 = in4; out4 = in3; end
+      10'b1111011111: begin out0 = in0; out1 = in2; out2 = in1; out3 = in3; out4 = in4; end
+      10'b1111100000: begin out0 = in0; out1 = in4; out2 = in3; out3 = in1; out4 = in2; end
+      10'b1111100001: begin out0 = in0; out1 = in3; out2 = in4; out3 = in1; out4 = in2; end
+      10'b1111101001: begin out0 = in0; out1 = in3; out2 = in1; out3 = in4; out4 = in2; end
+      10'b1111101011: begin out0 = in0; out1 = in3; out2 = in1; out3 = in2; out4 = in4; end
+      10'b1111110000: begin out0 = in0; out1 = in4; out2 = in1; out3 = in3; out4 = in2; end
+      10'b1111110100: begin out0 = in0; out1 = in4; out2 = in1; out3 = in2; out4 = in3; end
+      10'b1111111000: begin out0 = in0; out1 = in1; out2 = in4; out3 = in3; out4 = in2; end
+      10'b1111111001: begin out0 = in0; out1 = in1; out2 = in3; out3 = in4; out4 = in2; end
+      10'b1111111011: begin out0 = in0; out1 = in1; out2 = in3; out3 = in2; out4 = in4; end
+      10'b1111111100: begin out0 = in0; out1 = in1; out2 = in4; out3 = in2; out4 = in3; end
+      10'b1111111110: begin out0 = in0; out1 = in1; out2 = in2; out3 = in4; out4 = in3; end
+      10'b1111111111: begin out0 = in0; out1 = in1; out2 = in2; out3 = in3; out4 = in4; end
+      default: begin out0 = {B{1'bx}}; out1 = {B{1'bx}}; out2 = {B{1'bx}}; out3 = {B{1'bx}}; out4 = {B{1'bx}}; end // 904 invalid cases
     endcase
   end
 endmodule
