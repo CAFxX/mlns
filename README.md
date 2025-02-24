@@ -32,6 +32,10 @@ Just to provide a rough idea, using [Yosys][Y] `synth` we get the following gate
 |   7 |  41387 |
 |   8 | 250448 |
 
+SiliconCompiler yields the following for the 4-sorter:
+
+![4-sorter synthesized on the skywater130 process](nsorter_4.png)
+
 ## License
 
 [MIT](LICENSE)
