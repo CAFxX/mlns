@@ -5,9 +5,9 @@ module nsorter_2 #(
   parameter B = 64
 ) (
   input [B-1:0] in0,
-  input [B-1:0] in1,
   output reg [B-1:0] out0,
-  output reg [B-1:0] out1,
+  input [B-1:0] in1,
+  output reg [B-1:0] out1
 );
   wire c0 = in0 < in1;
   always @(*) begin

@@ -5,17 +5,17 @@ module nsorter_6 #(
   parameter B = 64
 ) (
   input [B-1:0] in0,
-  input [B-1:0] in1,
-  input [B-1:0] in2,
-  input [B-1:0] in3,
-  input [B-1:0] in4,
-  input [B-1:0] in5,
   output reg [B-1:0] out0,
+  input [B-1:0] in1,
   output reg [B-1:0] out1,
+  input [B-1:0] in2,
   output reg [B-1:0] out2,
+  input [B-1:0] in3,
   output reg [B-1:0] out3,
+  input [B-1:0] in4,
   output reg [B-1:0] out4,
-  output reg [B-1:0] out5,
+  input [B-1:0] in5,
+  output reg [B-1:0] out5
 );
   wire c0 = in0 < in1;
   wire c1 = in0 < in2;

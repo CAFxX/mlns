@@ -66,8 +66,7 @@ puts "// comparisons=#{(C*C-C)/2}, evals=#{pcs.length}, total cases=#{2**((C*C-C
 puts "module nsorter_#{C} #("
 puts "  parameter B = 64"
 puts ") ("
-C.times {|x| puts "  input [B-1:0] in#{x}," }
-C.times {|x| puts "  output reg [B-1:0] out#{x}," }
+puts C.times.map {|x| ["  input [B-1:0] in#{x}", "  output reg [B-1:0] out#{x}"] }.flatten.join(",\n")
 puts ");"
 k=0
 (0...C).each{|i|
