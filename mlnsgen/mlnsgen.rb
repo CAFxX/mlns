@@ -12,8 +12,6 @@ cs=[[0]]
         cs1 = cs.map{|c| c + [c.last+1] }
         cs = cs0 + cs1
 }
-#puts cs.length
-#puts cs.inspect
 
 logger.info "Permutations..."
 pcs=Set.new
@@ -57,7 +55,6 @@ pcs.each{|x|
 		end
         m[r] = nba
 }
-#puts m.inspect
 
 logger.info "Generating code..."
 puts "// minimal latency #{C}-sorter for B bits values"
@@ -78,11 +75,11 @@ k=0
 puts "  always @(*) begin"
 puts "    case ({#{(0...((C*C-C)/2)).to_a.map{|x| "c#{x}" }.join(",")}})"
 m.keys.sort.each{|k| v=m[k]
-	#puts "      #{k.length}'b#{k.join("")}: out = {#{v.map{|e| "in[#{e[0]}]" }.join(",") }};"
 	puts "      #{k.length}'b#{k.join}: begin #{v.map.with_index{|e,i| "out#{i} = in#{e[0]}; "}.join}end"
 }
-#puts "      default: out = {#{C}{B{1'bx}}}; // #{2**((C*C-C)/2) - m.length} invalid cases" unless m.length == 2**((C*C-C)/2)
 puts "      default: begin #{C.times.map {|x| "out#{x} = {B{1'bx}}; "}.join}end // #{2**((C*C-C)/2) - m.length} invalid cases" unless m.length == 2**((C*C-C)/2)
 puts "    endcase"
 puts "  end"
 puts "endmodule"
+
+logger.info "Done."
