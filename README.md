@@ -13,11 +13,20 @@ sorting networks).
 ## Generator
 
 To generate the N-sorter for a specifc value of `N`, run: `ruby mlnsgen/mlnsgen.rb <N>`
-(e.g. `ruby mlnsgen/mlnsgen.rb 4`).
-The current algorithm is pretty dumb (it performs an exhaustive search, i.e. uses superlinear
-time), so it is too slow for values of N much higher than 8 (and furthermore the resulting
-Verilog code that implements such wide N-sorters becomes impractically large for synthesis
-tools to handle efficiently).
+(e.g. `ruby mlnsgen/mlnsgen.rb 4`) or `ruby mlnsgen/mlnsgenfast.rb <N>`.
+
+### mlnsgen
+
+The current algorithm performs an exhaustive search (i.e. uses superlinear time), so it is
+too slow for values of N much higher than 8 (and furthermore the resulting Verilog code that
+implements such wide N-sorters becomes impractically large for synthesis tools to handle
+efficiently).
+
+### mlnsgenfast
+
+This generator directly synthesizes the cases. It can be used to generate larger sorters
+(but keep in mind that sorters larger than 10 are going to result in gigabytes of Verilog
+code).
 
 ## Generated sorters
 
