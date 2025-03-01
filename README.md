@@ -44,6 +44,8 @@ Just to provide a rough idea, these are the currently available generated n-sort
 |   7 |          21 |      5040 |     41387 |           ? |
 |   8 |          28 |     40320 |    250448 |           ? |
 |   9 |          36 |    362880 |         ? |           ? |
+| ... |         ... |       ... |       ... |         ... |
+|   N | $(N*N-N)/2$ |      $N!$ |         ? |           ? |
 
 [SiliconCompiler][SC] 0.30.0 yields the following for the smaller n-sorters:
 
