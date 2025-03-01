@@ -2,7 +2,7 @@
 
 This repo contains MLNS for small values of N, as well as the generator used to generate them.
 
-A **N-sorter** is a circuit that, given N input values, returns them sorted.
+A **N-sorter**[^k] is a circuit that, given N input values, returns them sorted.
 A 2-sorter, commonly used in [sorting networks][SN], is a special case of N-sorter.
 
 A **MLNS** is an N-sorter that aims at ensuring that the sorting happens with the smallest
@@ -56,10 +56,11 @@ Just to provide a rough idea, these are the currently available generated n-sort
 
 [MIT](LICENSE)
 
-[^1]: [Yosys][Y] 0.33, `synth`; 64 bit values
-[^2]: [SiliconCompiler][SC] 0.30.0, skywater130 process, density 50; 64 bit values
-[^3]: [SiliconCompiler][SC] 0.30.0, skywater130 process, density 40; 64 bit values
+[^1]: [Yosys][Y] 0.33, `synth`; 64 bit values.
+[^2]: [SiliconCompiler][SC] 0.30.0, skywater130 process, density 50; 64 bit values.
+[^3]: [SiliconCompiler][SC] 0.30.0, skywater130 process, density 40; 64 bit values.
 [^L]: Specifically, the number of stages does not depend on the number of inputs, like it does in sorting networks, because there is a single comparison stage and a single selection stage regardless of the number of inputs N, and the latency of the comparison stage is constant regardless of number of inputs N. The selection stage though does contain N-way mux, so the latency of the selection stage is proportional to log2(N).
+[^k]: Sometimes also called k-sorter.
 
 [SN]: https://en.wikipedia.org/wiki/Sorting_network
 [Y]: https://yosyshq.net/yosys/
