@@ -26,11 +26,11 @@ puts "    case ({#{(0...((C*C-C)/2)).to_a.map{|x| "c#{x}" }.join(",")}})"
 comparisons = (0...C).to_a.combination(2).to_a
 (0...C).to_a.permutation.lazy.each do |perm|
 	bit_str = comparisons.map { |i, j| perm.index(i) < perm.index(j) ? '1' : '0' }.join
-	assignment = perm.each_with_index.map { |val, k| "o#{k} = i#{val}; " }.join
+	assignment = perm.each_with_index.map { |val, k| "o#{k}=i#{val}; " }.join
 	puts "      #{bit_str.length}'b#{bit_str}: begin #{assignment}end"
 end
 
-puts "      default: begin #{C.times.map {|x| "o#{x} = {B{1'bx}}; "}.join}end // #{n_cases-n_order} invalid cases" unless n_cases==n_order
+puts "      default: begin #{C.times.map {|x| "o#{x}={B{1'bx}}; "}.join}end // #{n_cases-n_order} invalid cases" unless n_cases==n_order
 puts "    endcase"
 puts "  end"
 puts "endmodule"

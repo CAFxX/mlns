@@ -16,13 +16,13 @@ module nsorter_3 #(
   wire c2 = i1 < i2;
   always @(*) begin
     case ({c0,c1,c2})
-      3'b111: begin o0 = i0; o1 = i1; o2 = i2; end
-      3'b110: begin o0 = i0; o1 = i2; o2 = i1; end
-      3'b011: begin o0 = i1; o1 = i0; o2 = i2; end
-      3'b001: begin o0 = i1; o1 = i2; o2 = i0; end
-      3'b100: begin o0 = i2; o1 = i0; o2 = i1; end
-      3'b000: begin o0 = i2; o1 = i1; o2 = i0; end
-      default: begin o0 = {B{1'bx}}; o1 = {B{1'bx}}; o2 = {B{1'bx}}; end // 2 invalid cases
+      3'b111: begin o0=i0; o1=i1; o2=i2; end
+      3'b110: begin o0=i0; o1=i2; o2=i1; end
+      3'b011: begin o0=i1; o1=i0; o2=i2; end
+      3'b001: begin o0=i1; o1=i2; o2=i0; end
+      3'b100: begin o0=i2; o1=i0; o2=i1; end
+      3'b000: begin o0=i2; o1=i1; o2=i0; end
+      default: begin o0={B{1'bx}}; o1={B{1'bx}}; o2={B{1'bx}}; end // 2 invalid cases
     endcase
   end
 endmodule

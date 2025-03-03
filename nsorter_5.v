@@ -27,127 +27,127 @@ module nsorter_5 #(
   wire c9 = i3 < i4;
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5,c6,c7,c8,c9})
-      10'b1111111111: begin o0 = i0; o1 = i1; o2 = i2; o3 = i3; o4 = i4; end
-      10'b1111111110: begin o0 = i0; o1 = i1; o2 = i2; o3 = i4; o4 = i3; end
-      10'b1111111011: begin o0 = i0; o1 = i1; o2 = i3; o3 = i2; o4 = i4; end
-      10'b1111111001: begin o0 = i0; o1 = i1; o2 = i3; o3 = i4; o4 = i2; end
-      10'b1111111100: begin o0 = i0; o1 = i1; o2 = i4; o3 = i2; o4 = i3; end
-      10'b1111111000: begin o0 = i0; o1 = i1; o2 = i4; o3 = i3; o4 = i2; end
-      10'b1111011111: begin o0 = i0; o1 = i2; o2 = i1; o3 = i3; o4 = i4; end
-      10'b1111011110: begin o0 = i0; o1 = i2; o2 = i1; o3 = i4; o4 = i3; end
-      10'b1111001111: begin o0 = i0; o1 = i2; o2 = i3; o3 = i1; o4 = i4; end
-      10'b1111000111: begin o0 = i0; o1 = i2; o2 = i3; o3 = i4; o4 = i1; end
-      10'b1111010110: begin o0 = i0; o1 = i2; o2 = i4; o3 = i1; o4 = i3; end
-      10'b1111000110: begin o0 = i0; o1 = i2; o2 = i4; o3 = i3; o4 = i1; end
-      10'b1111101011: begin o0 = i0; o1 = i3; o2 = i1; o3 = i2; o4 = i4; end
-      10'b1111101001: begin o0 = i0; o1 = i3; o2 = i1; o3 = i4; o4 = i2; end
-      10'b1111001011: begin o0 = i0; o1 = i3; o2 = i2; o3 = i1; o4 = i4; end
-      10'b1111000011: begin o0 = i0; o1 = i3; o2 = i2; o3 = i4; o4 = i1; end
-      10'b1111100001: begin o0 = i0; o1 = i3; o2 = i4; o3 = i1; o4 = i2; end
-      10'b1111000001: begin o0 = i0; o1 = i3; o2 = i4; o3 = i2; o4 = i1; end
-      10'b1111110100: begin o0 = i0; o1 = i4; o2 = i1; o3 = i2; o4 = i3; end
-      10'b1111110000: begin o0 = i0; o1 = i4; o2 = i1; o3 = i3; o4 = i2; end
-      10'b1111010100: begin o0 = i0; o1 = i4; o2 = i2; o3 = i1; o4 = i3; end
-      10'b1111000100: begin o0 = i0; o1 = i4; o2 = i2; o3 = i3; o4 = i1; end
-      10'b1111100000: begin o0 = i0; o1 = i4; o2 = i3; o3 = i1; o4 = i2; end
-      10'b1111000000: begin o0 = i0; o1 = i4; o2 = i3; o3 = i2; o4 = i1; end
-      10'b0111111111: begin o0 = i1; o1 = i0; o2 = i2; o3 = i3; o4 = i4; end
-      10'b0111111110: begin o0 = i1; o1 = i0; o2 = i2; o3 = i4; o4 = i3; end
-      10'b0111111011: begin o0 = i1; o1 = i0; o2 = i3; o3 = i2; o4 = i4; end
-      10'b0111111001: begin o0 = i1; o1 = i0; o2 = i3; o3 = i4; o4 = i2; end
-      10'b0111111100: begin o0 = i1; o1 = i0; o2 = i4; o3 = i2; o4 = i3; end
-      10'b0111111000: begin o0 = i1; o1 = i0; o2 = i4; o3 = i3; o4 = i2; end
-      10'b0011111111: begin o0 = i1; o1 = i2; o2 = i0; o3 = i3; o4 = i4; end
-      10'b0011111110: begin o0 = i1; o1 = i2; o2 = i0; o3 = i4; o4 = i3; end
-      10'b0001111111: begin o0 = i1; o1 = i2; o2 = i3; o3 = i0; o4 = i4; end
-      10'b0000111111: begin o0 = i1; o1 = i2; o2 = i3; o3 = i4; o4 = i0; end
-      10'b0010111110: begin o0 = i1; o1 = i2; o2 = i4; o3 = i0; o4 = i3; end
-      10'b0000111110: begin o0 = i1; o1 = i2; o2 = i4; o3 = i3; o4 = i0; end
-      10'b0101111011: begin o0 = i1; o1 = i3; o2 = i0; o3 = i2; o4 = i4; end
-      10'b0101111001: begin o0 = i1; o1 = i3; o2 = i0; o3 = i4; o4 = i2; end
-      10'b0001111011: begin o0 = i1; o1 = i3; o2 = i2; o3 = i0; o4 = i4; end
-      10'b0000111011: begin o0 = i1; o1 = i3; o2 = i2; o3 = i4; o4 = i0; end
-      10'b0100111001: begin o0 = i1; o1 = i3; o2 = i4; o3 = i0; o4 = i2; end
-      10'b0000111001: begin o0 = i1; o1 = i3; o2 = i4; o3 = i2; o4 = i0; end
-      10'b0110111100: begin o0 = i1; o1 = i4; o2 = i0; o3 = i2; o4 = i3; end
-      10'b0110111000: begin o0 = i1; o1 = i4; o2 = i0; o3 = i3; o4 = i2; end
-      10'b0010111100: begin o0 = i1; o1 = i4; o2 = i2; o3 = i0; o4 = i3; end
-      10'b0000111100: begin o0 = i1; o1 = i4; o2 = i2; o3 = i3; o4 = i0; end
-      10'b0100111000: begin o0 = i1; o1 = i4; o2 = i3; o3 = i0; o4 = i2; end
-      10'b0000111000: begin o0 = i1; o1 = i4; o2 = i3; o3 = i2; o4 = i0; end
-      10'b1011011111: begin o0 = i2; o1 = i0; o2 = i1; o3 = i3; o4 = i4; end
-      10'b1011011110: begin o0 = i2; o1 = i0; o2 = i1; o3 = i4; o4 = i3; end
-      10'b1011001111: begin o0 = i2; o1 = i0; o2 = i3; o3 = i1; o4 = i4; end
-      10'b1011000111: begin o0 = i2; o1 = i0; o2 = i3; o3 = i4; o4 = i1; end
-      10'b1011010110: begin o0 = i2; o1 = i0; o2 = i4; o3 = i1; o4 = i3; end
-      10'b1011000110: begin o0 = i2; o1 = i0; o2 = i4; o3 = i3; o4 = i1; end
-      10'b0011011111: begin o0 = i2; o1 = i1; o2 = i0; o3 = i3; o4 = i4; end
-      10'b0011011110: begin o0 = i2; o1 = i1; o2 = i0; o3 = i4; o4 = i3; end
-      10'b0001011111: begin o0 = i2; o1 = i1; o2 = i3; o3 = i0; o4 = i4; end
-      10'b0000011111: begin o0 = i2; o1 = i1; o2 = i3; o3 = i4; o4 = i0; end
-      10'b0010011110: begin o0 = i2; o1 = i1; o2 = i4; o3 = i0; o4 = i3; end
-      10'b0000011110: begin o0 = i2; o1 = i1; o2 = i4; o3 = i3; o4 = i0; end
-      10'b1001001111: begin o0 = i2; o1 = i3; o2 = i0; o3 = i1; o4 = i4; end
-      10'b1001000111: begin o0 = i2; o1 = i3; o2 = i0; o3 = i4; o4 = i1; end
-      10'b0001001111: begin o0 = i2; o1 = i3; o2 = i1; o3 = i0; o4 = i4; end
-      10'b0000001111: begin o0 = i2; o1 = i3; o2 = i1; o3 = i4; o4 = i0; end
-      10'b1000000111: begin o0 = i2; o1 = i3; o2 = i4; o3 = i0; o4 = i1; end
-      10'b0000000111: begin o0 = i2; o1 = i3; o2 = i4; o3 = i1; o4 = i0; end
-      10'b1010010110: begin o0 = i2; o1 = i4; o2 = i0; o3 = i1; o4 = i3; end
-      10'b1010000110: begin o0 = i2; o1 = i4; o2 = i0; o3 = i3; o4 = i1; end
-      10'b0010010110: begin o0 = i2; o1 = i4; o2 = i1; o3 = i0; o4 = i3; end
-      10'b0000010110: begin o0 = i2; o1 = i4; o2 = i1; o3 = i3; o4 = i0; end
-      10'b1000000110: begin o0 = i2; o1 = i4; o2 = i3; o3 = i0; o4 = i1; end
-      10'b0000000110: begin o0 = i2; o1 = i4; o2 = i3; o3 = i1; o4 = i0; end
-      10'b1101101011: begin o0 = i3; o1 = i0; o2 = i1; o3 = i2; o4 = i4; end
-      10'b1101101001: begin o0 = i3; o1 = i0; o2 = i1; o3 = i4; o4 = i2; end
-      10'b1101001011: begin o0 = i3; o1 = i0; o2 = i2; o3 = i1; o4 = i4; end
-      10'b1101000011: begin o0 = i3; o1 = i0; o2 = i2; o3 = i4; o4 = i1; end
-      10'b1101100001: begin o0 = i3; o1 = i0; o2 = i4; o3 = i1; o4 = i2; end
-      10'b1101000001: begin o0 = i3; o1 = i0; o2 = i4; o3 = i2; o4 = i1; end
-      10'b0101101011: begin o0 = i3; o1 = i1; o2 = i0; o3 = i2; o4 = i4; end
-      10'b0101101001: begin o0 = i3; o1 = i1; o2 = i0; o3 = i4; o4 = i2; end
-      10'b0001101011: begin o0 = i3; o1 = i1; o2 = i2; o3 = i0; o4 = i4; end
-      10'b0000101011: begin o0 = i3; o1 = i1; o2 = i2; o3 = i4; o4 = i0; end
-      10'b0100101001: begin o0 = i3; o1 = i1; o2 = i4; o3 = i0; o4 = i2; end
-      10'b0000101001: begin o0 = i3; o1 = i1; o2 = i4; o3 = i2; o4 = i0; end
-      10'b1001001011: begin o0 = i3; o1 = i2; o2 = i0; o3 = i1; o4 = i4; end
-      10'b1001000011: begin o0 = i3; o1 = i2; o2 = i0; o3 = i4; o4 = i1; end
-      10'b0001001011: begin o0 = i3; o1 = i2; o2 = i1; o3 = i0; o4 = i4; end
-      10'b0000001011: begin o0 = i3; o1 = i2; o2 = i1; o3 = i4; o4 = i0; end
-      10'b1000000011: begin o0 = i3; o1 = i2; o2 = i4; o3 = i0; o4 = i1; end
-      10'b0000000011: begin o0 = i3; o1 = i2; o2 = i4; o3 = i1; o4 = i0; end
-      10'b1100100001: begin o0 = i3; o1 = i4; o2 = i0; o3 = i1; o4 = i2; end
-      10'b1100000001: begin o0 = i3; o1 = i4; o2 = i0; o3 = i2; o4 = i1; end
-      10'b0100100001: begin o0 = i3; o1 = i4; o2 = i1; o3 = i0; o4 = i2; end
-      10'b0000100001: begin o0 = i3; o1 = i4; o2 = i1; o3 = i2; o4 = i0; end
-      10'b1000000001: begin o0 = i3; o1 = i4; o2 = i2; o3 = i0; o4 = i1; end
-      10'b0000000001: begin o0 = i3; o1 = i4; o2 = i2; o3 = i1; o4 = i0; end
-      10'b1110110100: begin o0 = i4; o1 = i0; o2 = i1; o3 = i2; o4 = i3; end
-      10'b1110110000: begin o0 = i4; o1 = i0; o2 = i1; o3 = i3; o4 = i2; end
-      10'b1110010100: begin o0 = i4; o1 = i0; o2 = i2; o3 = i1; o4 = i3; end
-      10'b1110000100: begin o0 = i4; o1 = i0; o2 = i2; o3 = i3; o4 = i1; end
-      10'b1110100000: begin o0 = i4; o1 = i0; o2 = i3; o3 = i1; o4 = i2; end
-      10'b1110000000: begin o0 = i4; o1 = i0; o2 = i3; o3 = i2; o4 = i1; end
-      10'b0110110100: begin o0 = i4; o1 = i1; o2 = i0; o3 = i2; o4 = i3; end
-      10'b0110110000: begin o0 = i4; o1 = i1; o2 = i0; o3 = i3; o4 = i2; end
-      10'b0010110100: begin o0 = i4; o1 = i1; o2 = i2; o3 = i0; o4 = i3; end
-      10'b0000110100: begin o0 = i4; o1 = i1; o2 = i2; o3 = i3; o4 = i0; end
-      10'b0100110000: begin o0 = i4; o1 = i1; o2 = i3; o3 = i0; o4 = i2; end
-      10'b0000110000: begin o0 = i4; o1 = i1; o2 = i3; o3 = i2; o4 = i0; end
-      10'b1010010100: begin o0 = i4; o1 = i2; o2 = i0; o3 = i1; o4 = i3; end
-      10'b1010000100: begin o0 = i4; o1 = i2; o2 = i0; o3 = i3; o4 = i1; end
-      10'b0010010100: begin o0 = i4; o1 = i2; o2 = i1; o3 = i0; o4 = i3; end
-      10'b0000010100: begin o0 = i4; o1 = i2; o2 = i1; o3 = i3; o4 = i0; end
-      10'b1000000100: begin o0 = i4; o1 = i2; o2 = i3; o3 = i0; o4 = i1; end
-      10'b0000000100: begin o0 = i4; o1 = i2; o2 = i3; o3 = i1; o4 = i0; end
-      10'b1100100000: begin o0 = i4; o1 = i3; o2 = i0; o3 = i1; o4 = i2; end
-      10'b1100000000: begin o0 = i4; o1 = i3; o2 = i0; o3 = i2; o4 = i1; end
-      10'b0100100000: begin o0 = i4; o1 = i3; o2 = i1; o3 = i0; o4 = i2; end
-      10'b0000100000: begin o0 = i4; o1 = i3; o2 = i1; o3 = i2; o4 = i0; end
-      10'b1000000000: begin o0 = i4; o1 = i3; o2 = i2; o3 = i0; o4 = i1; end
-      10'b0000000000: begin o0 = i4; o1 = i3; o2 = i2; o3 = i1; o4 = i0; end
-      default: begin o0 = {B{1'bx}}; o1 = {B{1'bx}}; o2 = {B{1'bx}}; o3 = {B{1'bx}}; o4 = {B{1'bx}}; end // 904 invalid cases
+      10'b1111111111: begin o0=i0; o1=i1; o2=i2; o3=i3; o4=i4; end
+      10'b1111111110: begin o0=i0; o1=i1; o2=i2; o3=i4; o4=i3; end
+      10'b1111111011: begin o0=i0; o1=i1; o2=i3; o3=i2; o4=i4; end
+      10'b1111111001: begin o0=i0; o1=i1; o2=i3; o3=i4; o4=i2; end
+      10'b1111111100: begin o0=i0; o1=i1; o2=i4; o3=i2; o4=i3; end
+      10'b1111111000: begin o0=i0; o1=i1; o2=i4; o3=i3; o4=i2; end
+      10'b1111011111: begin o0=i0; o1=i2; o2=i1; o3=i3; o4=i4; end
+      10'b1111011110: begin o0=i0; o1=i2; o2=i1; o3=i4; o4=i3; end
+      10'b1111001111: begin o0=i0; o1=i2; o2=i3; o3=i1; o4=i4; end
+      10'b1111000111: begin o0=i0; o1=i2; o2=i3; o3=i4; o4=i1; end
+      10'b1111010110: begin o0=i0; o1=i2; o2=i4; o3=i1; o4=i3; end
+      10'b1111000110: begin o0=i0; o1=i2; o2=i4; o3=i3; o4=i1; end
+      10'b1111101011: begin o0=i0; o1=i3; o2=i1; o3=i2; o4=i4; end
+      10'b1111101001: begin o0=i0; o1=i3; o2=i1; o3=i4; o4=i2; end
+      10'b1111001011: begin o0=i0; o1=i3; o2=i2; o3=i1; o4=i4; end
+      10'b1111000011: begin o0=i0; o1=i3; o2=i2; o3=i4; o4=i1; end
+      10'b1111100001: begin o0=i0; o1=i3; o2=i4; o3=i1; o4=i2; end
+      10'b1111000001: begin o0=i0; o1=i3; o2=i4; o3=i2; o4=i1; end
+      10'b1111110100: begin o0=i0; o1=i4; o2=i1; o3=i2; o4=i3; end
+      10'b1111110000: begin o0=i0; o1=i4; o2=i1; o3=i3; o4=i2; end
+      10'b1111010100: begin o0=i0; o1=i4; o2=i2; o3=i1; o4=i3; end
+      10'b1111000100: begin o0=i0; o1=i4; o2=i2; o3=i3; o4=i1; end
+      10'b1111100000: begin o0=i0; o1=i4; o2=i3; o3=i1; o4=i2; end
+      10'b1111000000: begin o0=i0; o1=i4; o2=i3; o3=i2; o4=i1; end
+      10'b0111111111: begin o0=i1; o1=i0; o2=i2; o3=i3; o4=i4; end
+      10'b0111111110: begin o0=i1; o1=i0; o2=i2; o3=i4; o4=i3; end
+      10'b0111111011: begin o0=i1; o1=i0; o2=i3; o3=i2; o4=i4; end
+      10'b0111111001: begin o0=i1; o1=i0; o2=i3; o3=i4; o4=i2; end
+      10'b0111111100: begin o0=i1; o1=i0; o2=i4; o3=i2; o4=i3; end
+      10'b0111111000: begin o0=i1; o1=i0; o2=i4; o3=i3; o4=i2; end
+      10'b0011111111: begin o0=i1; o1=i2; o2=i0; o3=i3; o4=i4; end
+      10'b0011111110: begin o0=i1; o1=i2; o2=i0; o3=i4; o4=i3; end
+      10'b0001111111: begin o0=i1; o1=i2; o2=i3; o3=i0; o4=i4; end
+      10'b0000111111: begin o0=i1; o1=i2; o2=i3; o3=i4; o4=i0; end
+      10'b0010111110: begin o0=i1; o1=i2; o2=i4; o3=i0; o4=i3; end
+      10'b0000111110: begin o0=i1; o1=i2; o2=i4; o3=i3; o4=i0; end
+      10'b0101111011: begin o0=i1; o1=i3; o2=i0; o3=i2; o4=i4; end
+      10'b0101111001: begin o0=i1; o1=i3; o2=i0; o3=i4; o4=i2; end
+      10'b0001111011: begin o0=i1; o1=i3; o2=i2; o3=i0; o4=i4; end
+      10'b0000111011: begin o0=i1; o1=i3; o2=i2; o3=i4; o4=i0; end
+      10'b0100111001: begin o0=i1; o1=i3; o2=i4; o3=i0; o4=i2; end
+      10'b0000111001: begin o0=i1; o1=i3; o2=i4; o3=i2; o4=i0; end
+      10'b0110111100: begin o0=i1; o1=i4; o2=i0; o3=i2; o4=i3; end
+      10'b0110111000: begin o0=i1; o1=i4; o2=i0; o3=i3; o4=i2; end
+      10'b0010111100: begin o0=i1; o1=i4; o2=i2; o3=i0; o4=i3; end
+      10'b0000111100: begin o0=i1; o1=i4; o2=i2; o3=i3; o4=i0; end
+      10'b0100111000: begin o0=i1; o1=i4; o2=i3; o3=i0; o4=i2; end
+      10'b0000111000: begin o0=i1; o1=i4; o2=i3; o3=i2; o4=i0; end
+      10'b1011011111: begin o0=i2; o1=i0; o2=i1; o3=i3; o4=i4; end
+      10'b1011011110: begin o0=i2; o1=i0; o2=i1; o3=i4; o4=i3; end
+      10'b1011001111: begin o0=i2; o1=i0; o2=i3; o3=i1; o4=i4; end
+      10'b1011000111: begin o0=i2; o1=i0; o2=i3; o3=i4; o4=i1; end
+      10'b1011010110: begin o0=i2; o1=i0; o2=i4; o3=i1; o4=i3; end
+      10'b1011000110: begin o0=i2; o1=i0; o2=i4; o3=i3; o4=i1; end
+      10'b0011011111: begin o0=i2; o1=i1; o2=i0; o3=i3; o4=i4; end
+      10'b0011011110: begin o0=i2; o1=i1; o2=i0; o3=i4; o4=i3; end
+      10'b0001011111: begin o0=i2; o1=i1; o2=i3; o3=i0; o4=i4; end
+      10'b0000011111: begin o0=i2; o1=i1; o2=i3; o3=i4; o4=i0; end
+      10'b0010011110: begin o0=i2; o1=i1; o2=i4; o3=i0; o4=i3; end
+      10'b0000011110: begin o0=i2; o1=i1; o2=i4; o3=i3; o4=i0; end
+      10'b1001001111: begin o0=i2; o1=i3; o2=i0; o3=i1; o4=i4; end
+      10'b1001000111: begin o0=i2; o1=i3; o2=i0; o3=i4; o4=i1; end
+      10'b0001001111: begin o0=i2; o1=i3; o2=i1; o3=i0; o4=i4; end
+      10'b0000001111: begin o0=i2; o1=i3; o2=i1; o3=i4; o4=i0; end
+      10'b1000000111: begin o0=i2; o1=i3; o2=i4; o3=i0; o4=i1; end
+      10'b0000000111: begin o0=i2; o1=i3; o2=i4; o3=i1; o4=i0; end
+      10'b1010010110: begin o0=i2; o1=i4; o2=i0; o3=i1; o4=i3; end
+      10'b1010000110: begin o0=i2; o1=i4; o2=i0; o3=i3; o4=i1; end
+      10'b0010010110: begin o0=i2; o1=i4; o2=i1; o3=i0; o4=i3; end
+      10'b0000010110: begin o0=i2; o1=i4; o2=i1; o3=i3; o4=i0; end
+      10'b1000000110: begin o0=i2; o1=i4; o2=i3; o3=i0; o4=i1; end
+      10'b0000000110: begin o0=i2; o1=i4; o2=i3; o3=i1; o4=i0; end
+      10'b1101101011: begin o0=i3; o1=i0; o2=i1; o3=i2; o4=i4; end
+      10'b1101101001: begin o0=i3; o1=i0; o2=i1; o3=i4; o4=i2; end
+      10'b1101001011: begin o0=i3; o1=i0; o2=i2; o3=i1; o4=i4; end
+      10'b1101000011: begin o0=i3; o1=i0; o2=i2; o3=i4; o4=i1; end
+      10'b1101100001: begin o0=i3; o1=i0; o2=i4; o3=i1; o4=i2; end
+      10'b1101000001: begin o0=i3; o1=i0; o2=i4; o3=i2; o4=i1; end
+      10'b0101101011: begin o0=i3; o1=i1; o2=i0; o3=i2; o4=i4; end
+      10'b0101101001: begin o0=i3; o1=i1; o2=i0; o3=i4; o4=i2; end
+      10'b0001101011: begin o0=i3; o1=i1; o2=i2; o3=i0; o4=i4; end
+      10'b0000101011: begin o0=i3; o1=i1; o2=i2; o3=i4; o4=i0; end
+      10'b0100101001: begin o0=i3; o1=i1; o2=i4; o3=i0; o4=i2; end
+      10'b0000101001: begin o0=i3; o1=i1; o2=i4; o3=i2; o4=i0; end
+      10'b1001001011: begin o0=i3; o1=i2; o2=i0; o3=i1; o4=i4; end
+      10'b1001000011: begin o0=i3; o1=i2; o2=i0; o3=i4; o4=i1; end
+      10'b0001001011: begin o0=i3; o1=i2; o2=i1; o3=i0; o4=i4; end
+      10'b0000001011: begin o0=i3; o1=i2; o2=i1; o3=i4; o4=i0; end
+      10'b1000000011: begin o0=i3; o1=i2; o2=i4; o3=i0; o4=i1; end
+      10'b0000000011: begin o0=i3; o1=i2; o2=i4; o3=i1; o4=i0; end
+      10'b1100100001: begin o0=i3; o1=i4; o2=i0; o3=i1; o4=i2; end
+      10'b1100000001: begin o0=i3; o1=i4; o2=i0; o3=i2; o4=i1; end
+      10'b0100100001: begin o0=i3; o1=i4; o2=i1; o3=i0; o4=i2; end
+      10'b0000100001: begin o0=i3; o1=i4; o2=i1; o3=i2; o4=i0; end
+      10'b1000000001: begin o0=i3; o1=i4; o2=i2; o3=i0; o4=i1; end
+      10'b0000000001: begin o0=i3; o1=i4; o2=i2; o3=i1; o4=i0; end
+      10'b1110110100: begin o0=i4; o1=i0; o2=i1; o3=i2; o4=i3; end
+      10'b1110110000: begin o0=i4; o1=i0; o2=i1; o3=i3; o4=i2; end
+      10'b1110010100: begin o0=i4; o1=i0; o2=i2; o3=i1; o4=i3; end
+      10'b1110000100: begin o0=i4; o1=i0; o2=i2; o3=i3; o4=i1; end
+      10'b1110100000: begin o0=i4; o1=i0; o2=i3; o3=i1; o4=i2; end
+      10'b1110000000: begin o0=i4; o1=i0; o2=i3; o3=i2; o4=i1; end
+      10'b0110110100: begin o0=i4; o1=i1; o2=i0; o3=i2; o4=i3; end
+      10'b0110110000: begin o0=i4; o1=i1; o2=i0; o3=i3; o4=i2; end
+      10'b0010110100: begin o0=i4; o1=i1; o2=i2; o3=i0; o4=i3; end
+      10'b0000110100: begin o0=i4; o1=i1; o2=i2; o3=i3; o4=i0; end
+      10'b0100110000: begin o0=i4; o1=i1; o2=i3; o3=i0; o4=i2; end
+      10'b0000110000: begin o0=i4; o1=i1; o2=i3; o3=i2; o4=i0; end
+      10'b1010010100: begin o0=i4; o1=i2; o2=i0; o3=i1; o4=i3; end
+      10'b1010000100: begin o0=i4; o1=i2; o2=i0; o3=i3; o4=i1; end
+      10'b0010010100: begin o0=i4; o1=i2; o2=i1; o3=i0; o4=i3; end
+      10'b0000010100: begin o0=i4; o1=i2; o2=i1; o3=i3; o4=i0; end
+      10'b1000000100: begin o0=i4; o1=i2; o2=i3; o3=i0; o4=i1; end
+      10'b0000000100: begin o0=i4; o1=i2; o2=i3; o3=i1; o4=i0; end
+      10'b1100100000: begin o0=i4; o1=i3; o2=i0; o3=i1; o4=i2; end
+      10'b1100000000: begin o0=i4; o1=i3; o2=i0; o3=i2; o4=i1; end
+      10'b0100100000: begin o0=i4; o1=i3; o2=i1; o3=i0; o4=i2; end
+      10'b0000100000: begin o0=i4; o1=i3; o2=i1; o3=i2; o4=i0; end
+      10'b1000000000: begin o0=i4; o1=i3; o2=i2; o3=i0; o4=i1; end
+      10'b0000000000: begin o0=i4; o1=i3; o2=i2; o3=i1; o4=i0; end
+      default: begin o0={B{1'bx}}; o1={B{1'bx}}; o2={B{1'bx}}; o3={B{1'bx}}; o4={B{1'bx}}; end // 904 invalid cases
     endcase
   end
 endmodule

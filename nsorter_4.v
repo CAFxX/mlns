@@ -21,31 +21,31 @@ module nsorter_4 #(
   wire c5 = i2 < i3;
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5})
-      6'b111111: begin o0 = i0; o1 = i1; o2 = i2; o3 = i3; end
-      6'b111110: begin o0 = i0; o1 = i1; o2 = i3; o3 = i2; end
-      6'b111011: begin o0 = i0; o1 = i2; o2 = i1; o3 = i3; end
-      6'b111001: begin o0 = i0; o1 = i2; o2 = i3; o3 = i1; end
-      6'b111100: begin o0 = i0; o1 = i3; o2 = i1; o3 = i2; end
-      6'b111000: begin o0 = i0; o1 = i3; o2 = i2; o3 = i1; end
-      6'b011111: begin o0 = i1; o1 = i0; o2 = i2; o3 = i3; end
-      6'b011110: begin o0 = i1; o1 = i0; o2 = i3; o3 = i2; end
-      6'b001111: begin o0 = i1; o1 = i2; o2 = i0; o3 = i3; end
-      6'b000111: begin o0 = i1; o1 = i2; o2 = i3; o3 = i0; end
-      6'b010110: begin o0 = i1; o1 = i3; o2 = i0; o3 = i2; end
-      6'b000110: begin o0 = i1; o1 = i3; o2 = i2; o3 = i0; end
-      6'b101011: begin o0 = i2; o1 = i0; o2 = i1; o3 = i3; end
-      6'b101001: begin o0 = i2; o1 = i0; o2 = i3; o3 = i1; end
-      6'b001011: begin o0 = i2; o1 = i1; o2 = i0; o3 = i3; end
-      6'b000011: begin o0 = i2; o1 = i1; o2 = i3; o3 = i0; end
-      6'b100001: begin o0 = i2; o1 = i3; o2 = i0; o3 = i1; end
-      6'b000001: begin o0 = i2; o1 = i3; o2 = i1; o3 = i0; end
-      6'b110100: begin o0 = i3; o1 = i0; o2 = i1; o3 = i2; end
-      6'b110000: begin o0 = i3; o1 = i0; o2 = i2; o3 = i1; end
-      6'b010100: begin o0 = i3; o1 = i1; o2 = i0; o3 = i2; end
-      6'b000100: begin o0 = i3; o1 = i1; o2 = i2; o3 = i0; end
-      6'b100000: begin o0 = i3; o1 = i2; o2 = i0; o3 = i1; end
-      6'b000000: begin o0 = i3; o1 = i2; o2 = i1; o3 = i0; end
-      default: begin o0 = {B{1'bx}}; o1 = {B{1'bx}}; o2 = {B{1'bx}}; o3 = {B{1'bx}}; end // 40 invalid cases
+      6'b111111: begin o0=i0; o1=i1; o2=i2; o3=i3; end
+      6'b111110: begin o0=i0; o1=i1; o2=i3; o3=i2; end
+      6'b111011: begin o0=i0; o1=i2; o2=i1; o3=i3; end
+      6'b111001: begin o0=i0; o1=i2; o2=i3; o3=i1; end
+      6'b111100: begin o0=i0; o1=i3; o2=i1; o3=i2; end
+      6'b111000: begin o0=i0; o1=i3; o2=i2; o3=i1; end
+      6'b011111: begin o0=i1; o1=i0; o2=i2; o3=i3; end
+      6'b011110: begin o0=i1; o1=i0; o2=i3; o3=i2; end
+      6'b001111: begin o0=i1; o1=i2; o2=i0; o3=i3; end
+      6'b000111: begin o0=i1; o1=i2; o2=i3; o3=i0; end
+      6'b010110: begin o0=i1; o1=i3; o2=i0; o3=i2; end
+      6'b000110: begin o0=i1; o1=i3; o2=i2; o3=i0; end
+      6'b101011: begin o0=i2; o1=i0; o2=i1; o3=i3; end
+      6'b101001: begin o0=i2; o1=i0; o2=i3; o3=i1; end
+      6'b001011: begin o0=i2; o1=i1; o2=i0; o3=i3; end
+      6'b000011: begin o0=i2; o1=i1; o2=i3; o3=i0; end
+      6'b100001: begin o0=i2; o1=i3; o2=i0; o3=i1; end
+      6'b000001: begin o0=i2; o1=i3; o2=i1; o3=i0; end
+      6'b110100: begin o0=i3; o1=i0; o2=i1; o3=i2; end
+      6'b110000: begin o0=i3; o1=i0; o2=i2; o3=i1; end
+      6'b010100: begin o0=i3; o1=i1; o2=i0; o3=i2; end
+      6'b000100: begin o0=i3; o1=i1; o2=i2; o3=i0; end
+      6'b100000: begin o0=i3; o1=i2; o2=i0; o3=i1; end
+      6'b000000: begin o0=i3; o1=i2; o2=i1; o3=i0; end
+      default: begin o0={B{1'bx}}; o1={B{1'bx}}; o2={B{1'bx}}; o3={B{1'bx}}; end // 40 invalid cases
     endcase
   end
 endmodule

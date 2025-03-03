@@ -12,8 +12,8 @@ module nsorter_2 #(
   wire c0 = i0 < i1;
   always @(*) begin
     case ({c0})
-      1'b1: begin o0 = i0; o1 = i1; end
-      1'b0: begin o0 = i1; o1 = i0; end
+      1'b1: begin o0=i0; o1=i1; end
+      1'b0: begin o0=i1; o1=i0; end
     endcase
   end
 endmodule
