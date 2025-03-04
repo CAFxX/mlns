@@ -11,9 +11,9 @@ module nsorter_3 #(
   input [B-1:0] i2,
   output reg [B-1:0] o2
 );
-  wire c0 = i0 < i1;
-  wire c1 = i0 < i2;
-  wire c2 = i1 < i2;
+  wire c0 = (i0 < i1);
+  wire c1 = (i0 < i2);
+  wire c2 = (i1 < i2);
   always @(*) begin
     case ({c0,c1,c2})
       3'b111: begin o0=i0; o1=i1; o2=i2; end

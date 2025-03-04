@@ -9,7 +9,7 @@ module nsorter_2 #(
   input [B-1:0] i1,
   output reg [B-1:0] o1
 );
-  wire c0 = i0 < i1;
+  wire c0 = (i0 < i1);
   always @(*) begin
     case ({c0})
       1'b1: begin o0=i0; o1=i1; end

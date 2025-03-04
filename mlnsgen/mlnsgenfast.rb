@@ -1,5 +1,6 @@
 C=ARGV[0].to_i
 raise "illegal C=#{C}" if C < 2
+SIGNED=false
 
 n_comp=(C*C-C)/2
 n_cases=2**n_comp
@@ -11,12 +12,13 @@ puts "// comparisons=#{n_comp}, total cases=#{n_cases}, orderings=#{n_order}"
 puts "module nsorter_#{C} #("
 puts "  parameter B = 64"
 puts ") ("
+puts "  input is_signed," if SIGNED
 puts C.times.map {|x| ["  input [B-1:0] i#{x}", "  output reg [B-1:0] o#{x}"] }.flatten.join(",\n")
 puts ");"
 k=0
 (0...C).each{|i|
 	(i+1...C).each{|j|
-		puts "  wire c#{k} = i#{i} < i#{j};"
+		puts "  wire c#{k} = " + (SIGNED ? "is_signed ? ($signed(i#{i}) < $signed(i#{j})) : " : "") + "(i#{i} < i#{j});"
 		k += 1
 	}
 }

@@ -15,16 +15,16 @@ module nsorter_5 #(
   input [B-1:0] i4,
   output reg [B-1:0] o4
 );
-  wire c0 = i0 < i1;
-  wire c1 = i0 < i2;
-  wire c2 = i0 < i3;
-  wire c3 = i0 < i4;
-  wire c4 = i1 < i2;
-  wire c5 = i1 < i3;
-  wire c6 = i1 < i4;
-  wire c7 = i2 < i3;
-  wire c8 = i2 < i4;
-  wire c9 = i3 < i4;
+  wire c0 = (i0 < i1);
+  wire c1 = (i0 < i2);
+  wire c2 = (i0 < i3);
+  wire c3 = (i0 < i4);
+  wire c4 = (i1 < i2);
+  wire c5 = (i1 < i3);
+  wire c6 = (i1 < i4);
+  wire c7 = (i2 < i3);
+  wire c8 = (i2 < i4);
+  wire c9 = (i3 < i4);
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5,c6,c7,c8,c9})
       10'b1111111111: begin o0=i0; o1=i1; o2=i2; o3=i3; o4=i4; end

@@ -19,27 +19,27 @@ module nsorter_7 #(
   input [B-1:0] i6,
   output reg [B-1:0] o6
 );
-  wire c0 = i0 < i1;
-  wire c1 = i0 < i2;
-  wire c2 = i0 < i3;
-  wire c3 = i0 < i4;
-  wire c4 = i0 < i5;
-  wire c5 = i0 < i6;
-  wire c6 = i1 < i2;
-  wire c7 = i1 < i3;
-  wire c8 = i1 < i4;
-  wire c9 = i1 < i5;
-  wire c10 = i1 < i6;
-  wire c11 = i2 < i3;
-  wire c12 = i2 < i4;
-  wire c13 = i2 < i5;
-  wire c14 = i2 < i6;
-  wire c15 = i3 < i4;
-  wire c16 = i3 < i5;
-  wire c17 = i3 < i6;
-  wire c18 = i4 < i5;
-  wire c19 = i4 < i6;
-  wire c20 = i5 < i6;
+  wire c0 = (i0 < i1);
+  wire c1 = (i0 < i2);
+  wire c2 = (i0 < i3);
+  wire c3 = (i0 < i4);
+  wire c4 = (i0 < i5);
+  wire c5 = (i0 < i6);
+  wire c6 = (i1 < i2);
+  wire c7 = (i1 < i3);
+  wire c8 = (i1 < i4);
+  wire c9 = (i1 < i5);
+  wire c10 = (i1 < i6);
+  wire c11 = (i2 < i3);
+  wire c12 = (i2 < i4);
+  wire c13 = (i2 < i5);
+  wire c14 = (i2 < i6);
+  wire c15 = (i3 < i4);
+  wire c16 = (i3 < i5);
+  wire c17 = (i3 < i6);
+  wire c18 = (i4 < i5);
+  wire c19 = (i4 < i6);
+  wire c20 = (i5 < i6);
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20})
       21'b111111111111111111111: begin o0=i0; o1=i1; o2=i2; o3=i3; o4=i4; o5=i5; o6=i6; end

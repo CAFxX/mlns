@@ -13,12 +13,12 @@ module nsorter_4 #(
   input [B-1:0] i3,
   output reg [B-1:0] o3
 );
-  wire c0 = i0 < i1;
-  wire c1 = i0 < i2;
-  wire c2 = i0 < i3;
-  wire c3 = i1 < i2;
-  wire c4 = i1 < i3;
-  wire c5 = i2 < i3;
+  wire c0 = (i0 < i1);
+  wire c1 = (i0 < i2);
+  wire c2 = (i0 < i3);
+  wire c3 = (i1 < i2);
+  wire c4 = (i1 < i3);
+  wire c5 = (i2 < i3);
   always @(*) begin
     case ({c0,c1,c2,c3,c4,c5})
       6'b111111: begin o0=i0; o1=i1; o2=i2; o3=i3; end
