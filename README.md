@@ -3,7 +3,9 @@
 This repo contains MLNS for small values of N, as well as the generator used to generate them.
 
 A **N-sorter**[^k] is a circuit that, given N input values, returns them sorted.
-A 2-sorter, commonly used in [sorting networks][SN], is a special case of N-sorter.
+A 2-sorter, commonly used in [sorting networks][SN], is a special case of N-sorter;
+a 2-sorter implements the expression `{o0, o1} = i0 < i1 ? {i0, i1} : {i1, i0}`.
+
 
 A **MLNS** is an N-sorter that aims at ensuring that the sorting happens with the smallest
 possible latency. Specifically, the latency virtually does not depend on the number of inputs N[^L],
