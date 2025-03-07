@@ -51,10 +51,10 @@ Just to provide a rough idea, these are the currently available generated n-sort
 
 [SiliconCompiler][SC] 0.30.0 yields the following for the smaller n-sorters:
 
-<a href=nsorter_2.png><img src=nsorter_2.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
-<a href=nsorter_3.png><img src=nsorter_3.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
-<a href=nsorter_4.png><img src=nsorter_4.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
-<a href=nsorter_5.png><img src=nsorter_5.png alt="5-sorter synthesized on the skywater130 process" width="20%"></a>
+<a href=images/nsorter_2.png><img src=images/nsorter_2.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
+<a href=images/nsorter_3.png><img src=images/nsorter_3.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
+<a href=images/nsorter_4.png><img src=images/nsorter_4.png alt="4-sorter synthesized on the skywater130 process" width="20%"></a>
+<a href=images/nsorter_5.png><img src=images/nsorter_5.png alt="5-sorter synthesized on the skywater130 process" width="20%"></a>
 
 ## License
 
