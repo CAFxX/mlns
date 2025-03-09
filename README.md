@@ -6,7 +6,6 @@ A **N-sorter**[^k] is a circuit that, given N input values, returns them sorted.
 A 2-sorter, commonly used in [sorting networks][SN], is a special case of N-sorter;
 a 2-sorter implements the expression `{o0, o1} = i0 < i1 ? {i0, i1} : {i1, i0}`.
 
-
 A **MLNS** is an N-sorter that aims at ensuring that the sorting happens with the smallest
 possible latency. Specifically, the latency virtually does not depend on the number of inputs N[^L],
 as all comparisons are done in parallel (instead of in serial stages like they are done in
@@ -36,18 +35,18 @@ The files `nsorter_*.v` contain the generated n-sorters.
 
 Just to provide a rough idea, these are the currently available generated n-sorters and their characteristics:
 
-|   N |        Comparisons | Orderings | Gates[^1] |  Area (µm²) |
-| --: | -----------------: | --------: | --------: | ----------: |
-|   2 |                  1 |         2 |       447 |  6906.6[^2] |
-|   3 |                  3 |         6 |      1736 | 14589.0[^2] |
-|   4 |                  6 |        24 |      3543 | 27781.6[^2] |
-|   5 |                 10 |       120 |      6366 | 61711.7[^3] |
-|   6 |                 15 |       720 |     12551 |           ? |
-|   7 |                 21 |      5040 |     41387 |           ? |
-|   8 |                 28 |     40320 |    250448 |           ? |
-|   9 |                 36 |    362880 |         ? |           ? |
-| ... |                ... |       ... |       ... |         ... |
-| $N$ | $\dfrac{N^2-N}{2}$ |      $N!$ |         ? |           ? |
+|   N |        Comparisons | Orderings | Gates[^1] |  Area (µm²) | Optimal Sorting Network Comparisons[^osn] |
+| --: | -----------------: | --------: | --------: | ----------: | ----------------------------------------: |
+|   2 |                  1 |         2 |       447 |  6906.6[^2] |                                         1 |
+|   3 |                  3 |         6 |      1727 | 14589.0[^2] |                                         3 |
+|   4 |                  6 |        24 |      3512 | 27781.6[^2] |                                         5 |
+|   5 |                 10 |       120 |      6405 | 61711.7[^3] |                                         9 |
+|   6 |                 15 |       720 |     11897 |           ? |                                        12 |
+|   7 |                 21 |      5040 |         ? |           ? |                                        16 |
+|   8 |                 28 |     40320 |         ? |           ? |                                        19 |
+|   9 |                 36 |    362880 |         ? |           ? |                                        25 |
+| ... |                ... |       ... |       ... |         ... |                                       ... |
+| $N$ | $\dfrac{N^2-N}{2}$ |      $N!$ |         ? |           ? |                                         ? |
 
 [SiliconCompiler][SC] 0.30.0 yields the following for the smaller n-sorters:
 
@@ -65,6 +64,7 @@ Just to provide a rough idea, these are the currently available generated n-sort
 [^3]: [SiliconCompiler][SC] 0.30.0, skywater130 process, density 40; 64 bit values.
 [^L]: Specifically, the number of stages does not depend on the number of inputs, like it does in sorting networks, because there is a single comparison stage and a single selection stage regardless of the number of inputs N, and the latency of the comparison stage is constant regardless of number of inputs N. The selection stage though does contain N-way mux, so the latency of the selection stage is proportional to log2(N).
 [^k]: Sometimes also called k-sorter.
+[^osn]: [OEIS A003075](https://oeis.org/A003075)
 
 [SN]: https://en.wikipedia.org/wiki/Sorting_network
 [Y]: https://yosyshq.net/yosys/
