@@ -14,8 +14,9 @@ module nsorter_3 #(
   wire c0 = i0 < i1;
   wire c1 = i0 < i2;
   wire c2 = i1 < i2;
+  wire [2:0] c = {c0,c1,c2};
   always @(*) begin
-    casez ({c0,c1,c2})
+    casez (c)
       3'b11?: o0=i0; // 2 cases, 1 merged cases
       3'b0?1: o0=i1; // 2 cases, 1 merged cases
       3'b?00: o0=i2; // 2 cases, 1 merged cases
@@ -23,7 +24,7 @@ module nsorter_3 #(
     endcase
   end
   always @(*) begin
-    casez ({c0,c1,c2})
+    casez (c)
       3'b011, 3'b100: o1=i0; // 2 cases, 2 merged cases
       3'b000, 3'b111: o1=i1; // 2 cases, 2 merged cases
       3'b001, 3'b110: o1=i2; // 2 cases, 2 merged cases
@@ -31,7 +32,7 @@ module nsorter_3 #(
     endcase
   end
   always @(*) begin
-    casez ({c0,c1,c2})
+    casez (c)
       3'b00?: o2=i0; // 2 cases, 1 merged cases
       3'b1?0: o2=i1; // 2 cases, 1 merged cases
       3'b?11: o2=i2; // 2 cases, 1 merged cases

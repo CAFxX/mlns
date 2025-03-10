@@ -24,6 +24,7 @@ c=[]
 		c << "c#{c.length}"
 	}
 }
+puts "  wire [#{c.length-1}:0] c = {#{c.join(",")}};"
 
 def merge_cases(s)
 	s = Set.new(s)
@@ -62,7 +63,7 @@ comparisons = (0...C).to_a.combination(2).to_a
 end
 r.sort.each{|o,v|
 	puts "  always @(*) begin"
-	puts "    casez ({#{c.join(",")}})"
+	puts "    casez (c)"
 	v.sort.each{|i,a|
 		m = merge_cases(a)
 		puts "      #{m.map{|x| "#{comparisons.length}'b#{x}" }.sort.join(', ')}: o#{o}=i#{i}; // #{a.length} cases, #{m.length} merged cases"

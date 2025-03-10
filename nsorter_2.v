@@ -10,14 +10,15 @@ module nsorter_2 #(
   output reg [B-1:0] o1
 );
   wire c0 = i0 < i1;
+  wire [0:0] c = {c0};
   always @(*) begin
-    casez ({c0})
+    casez (c)
       1'b1: o0=i0; // 1 cases, 1 merged cases
       1'b0: o0=i1; // 1 cases, 1 merged cases
     endcase
   end
   always @(*) begin
-    casez ({c0})
+    casez (c)
       1'b0: o1=i0; // 1 cases, 1 merged cases
       1'b1: o1=i1; // 1 cases, 1 merged cases
     endcase

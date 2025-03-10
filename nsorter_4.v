@@ -19,8 +19,9 @@ module nsorter_4 #(
   wire c3 = i1 < i2;
   wire c4 = i1 < i3;
   wire c5 = i2 < i3;
+  wire [5:0] c = {c0,c1,c2,c3,c4,c5};
   always @(*) begin
-    casez ({c0,c1,c2,c3,c4,c5})
+    casez (c)
       6'b11100?, 6'b1111?0, 6'b111?11: o0=i0; // 6 cases, 3 merged cases
       6'b00011?, 6'b01?110, 6'b0?1111: o0=i1; // 6 cases, 3 merged cases
       6'b0000?1, 6'b10?001, 6'b?01011: o0=i2; // 6 cases, 3 merged cases
@@ -29,7 +30,7 @@ module nsorter_4 #(
     endcase
   end
   always @(*) begin
-    casez ({c0,c1,c2,c3,c4,c5})
+    casez (c)
       6'b01111?, 6'b1010?1, 6'b110?00: o1=i0; // 6 cases, 3 merged cases
       6'b00?011, 6'b0?0100, 6'b11111?: o1=i1; // 6 cases, 3 merged cases
       6'b00?111, 6'b1110?1, 6'b?00000: o1=i2; // 6 cases, 3 merged cases
@@ -38,7 +39,7 @@ module nsorter_4 #(
     endcase
   end
   always @(*) begin
-    casez ({c0,c1,c2,c3,c4,c5})
+    casez (c)
       6'b001?11, 6'b0101?0, 6'b10000?: o2=i0; // 6 cases, 3 merged cases
       6'b00000?, 6'b11?100, 6'b1?1011: o2=i1; // 6 cases, 3 merged cases
       6'b0001?0, 6'b11?000, 6'b?11111: o2=i2; // 6 cases, 3 merged cases
@@ -47,7 +48,7 @@ module nsorter_4 #(
     endcase
   end
   always @(*) begin
-    casez ({c0,c1,c2,c3,c4,c5})
+    casez (c)
       6'b00000?, 6'b0001?0, 6'b000?11: o3=i0; // 6 cases, 3 merged cases
       6'b10000?, 6'b11?000, 6'b1?1001: o3=i1; // 6 cases, 3 merged cases
       6'b0101?0, 6'b11?100, 6'b?11110: o3=i2; // 6 cases, 3 merged cases
